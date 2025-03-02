@@ -17,7 +17,28 @@ Expected output:
 */
 
 function getUniqueTags(data) {
-  return [...new Set(data.map((e) => e.tags).flat())];
+  
+  
+ // return [...new Set(data.map((e) => e.tags).flat())]; /* My code before looking for the solution */
+ 
+
+  // use map to loop through the data and get a new array of tags
+  // flatten the tags array with .flat()
+  const tags = data.map((podcast) => podcast.tags).flat();
+  // create a new array uniqueTags to hold the unique values
+  const uniqueTags = [];
+  // loop through the tags array
+
+  tags.forEach((tag) => {
+    // is the element already in the uniqueTags arr?
+    if (!uniqueTags.includes(tag)) {
+      uniqueTags.push(tag);
+    }
+  });
+
+  return uniqueTags;
+
+
 }
 
 console.log(getUniqueTags(mediaData));
