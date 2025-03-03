@@ -43,26 +43,12 @@ function isAnagramInArray(anagram, arr) {
     .split("")
     .sort()
     .join("");
-  let filteredArray = [];
 
-  arr.map((e) => {
+  return arr.filter((e) => {
     let sortedArray = e.replaceAll(" ", "").split("").sort().join("");
 
-    if (sortedArray === sortedAnagram) {
-      return filteredArray.push(e);
-    }
+    return sortedArray === sortedAnagram;
   });
-
-  return filteredArray;
-
-  /* this was returning sorted Anagram */
-
-  //  let sortedArray = arr.map(e => e.replaceAll(" ", "").split("").sort().join(""))
-  //  return sortedArray.filter(e => {
-  //      if (e === sortedAnagram) {
-  //          return sortedAnagram
-  //      }
-  //  })
 }
 
 console.log(isAnagramInArray("Bob Ziroll Scrimba Teacher", anagrams));
