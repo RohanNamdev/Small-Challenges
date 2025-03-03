@@ -33,27 +33,39 @@ Example description: "Coding Corner is a 55 minute education podcast hosted by T
 */
 
 function createDescriptionsFor(data) {
-  return data.map(
-    ({
-      id,
-      title,
-      tags,
-      hosts,
-      duration,
-      genre,
-      rating,
-      paid,
-      description,
-    }) => ({
-      id,
-      title,
-      tags,
-      hosts,
-      rating,
-      paid,
-      description: `${title} is a ${duration} minutes ${genre} podcast hosted by ${hosts[0]}`,
-    })
-  );
+  //   return data.map(
+  //     ({
+  //       id,
+  //       title,
+  //       tags,
+  //       hosts,
+  //       duration,
+  //       genre,
+  //       rating,
+  //       paid,
+  //       description,
+  //     }) => ({
+  //       id,
+  //       title,
+  //       tags,
+  //       hosts,
+  //       rating,
+  //       paid,
+  //       description: `${title} is a ${duration} minutes ${genre} podcast hosted by ${hosts[0]}`,
+  //     })
+  //   );
+
+  // map through the data
+  return data.map((podcast) => {
+    const { title, duration, genre, hosts } = podcast;
+    // use title, duration, genre and host data to make description
+    // for each podcast object, add description prop
+    return {
+      ...podcast,
+      description: `${title} is a ${duration} minute ${genre} podcast hosted 
+        by ${hosts[0]}.`,
+    };
+  });
 }
 
 console.log(createDescriptionsFor(podcasts));
